@@ -1,0 +1,283 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+    outline: none;
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+html, body {
+    height: 100%;
+    text-align: center;
+}
+
+p {
+    padding: 4px;
+}
+
+input, select {
+    border: 1px solid gray;
+    padding: 4px;
+}
+
+#users {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.users_header, .users_field {
+    text-align: left;
+    padding: 8px;
+    color: black;
+}
+
+#users .users_header {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf) );
+    background:-moz-linear-gradient( center top, #63b8ee 5%, #468ccf 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+    background-color:#63b8ee;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+
+}
+
+#users .header {
+    cursor: pointer;
+}
+
+#users .users_field {
+    border: 1px solid #ffffff;
+}
+
+#users tr:nth-child(2n) {
+    background-color: #F8F7F2;
+}
+
+#users .users_field_name:hover .users_field_user_manager {
+    display: block;
+}
+
+.users_field_user_manager:hover {
+    cursor: pointer;
+}
+
+.users_field_name {
+    width: 500px;
+}
+
+.users_field_user_manager {
+    display: none;
+    float: right;
+}
+
+.users_field_user_manager td {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.td_img_delete {
+    background-image: url(../images/user_delete-24-1.png);
+}
+
+.td_img_edit {
+    background-image: url(../images/user_edit-24-1.png);
+}
+
+#create_user_wrapper {
+    width: 350px;
+    height: auto;
+    padding: 12px;
+    margin: 0 auto;
+    display: none;
+}
+
+.create_user_wrapper_caption {
+    margin: 4px 0px 24px 0px;
+}
+
+#form_create {
+    text-align: left;
+}
+
+.form_create_input, #position_position_id  {
+    width: 95%;
+    margin: 4px;
+}
+
+.form_create_input, #permission_permission_id  {
+    width: 95%;
+    margin: 4px;
+}
+
+.button {
+
+    -moz-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+    box-shadow:inset 0px 1px 0px 0px #bee2f9;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf) );
+    background:-moz-linear-gradient( center top, #63b8ee 5%, #468ccf 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+    background-color:#63b8ee;
+    text-indent:0;
+    border:1px solid #3866a3;
+    color: #14396a;
+    font-size: 14px;
+    font-weight: bold;
+    height: 32px;
+    width: 120px !important;
+    margin: 12px 0px 0px 4px !important;
+    text-decoration:none;
+    text-align: center;
+    text-shadow: 1px 1px 0px #7cacde;
+}
+
+.button:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #63b8ee) );
+    background:-moz-linear-gradient( center top, #468ccf 5%, #63b8ee 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee');
+    background-color:#468ccf;
+}
+
+.button:active {
+     position:relative;
+     top:1px;
+ }
+
+#content_wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#manage {
+    height: 32px;
+    width: 100%;
+}
+
+#manage a {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    text-decoration: none;
+    color: black;
+}
+
+#manage a:hover {
+    cursor: pointer;
+    color: #4B94D4;
+    text-decoration: underline;
+}
+
+.manage_menu_item {
+    width: 120px;
+    padding: 4px;
+    text-align: left;
+}
+
+#manage_caption {
+    width: 220px !important;
+    text-align: left !important;
+}
+
+#manage_search_caption {
+    width: 50px !important;
+    text-align: left !important;
+}
+
+#manage_search {
+    width: 300px !important;
+
+}
+#manage_search input {
+    width: 220px;
+}
+
+#manage_add {
+    width: 250px !important;
+}
+
+#submit {
+    display: none;
+}
+
+.error {
+    float: right;
+    display: none;
+    color: #ff0000;
+    font-size: 12px;
+}
+
+#user_error {
+    padding: 6px 0px 0px 8px;
+}
+
+#submit_search {
+    float: right;
+    width: 64px !important;
+    height: 27px !important;
+    margin: 0 !important;
+
+}
+
+#auth-table {
+    width: 100%;
+    height: 100%;
+}
+
+#auth-table_logo {
+    width: 250px;
+    height: 100px;
+    margin: 0 auto;
+    line-height: 100px;
+    font-size: 38px;
+
+    text-align: right;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
+#auth-table_wrapper {
+    width: 250px;
+    margin: 0 auto;
+}
+
+#auth-table_wrapper td {
+    padding: 4px;
+}
+
+#auth-table_wrapper input {
+    width: 95%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

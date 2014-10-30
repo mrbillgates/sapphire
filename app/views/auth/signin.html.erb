@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sapphire</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <table id="auth-table">
+   <tr>
+     <td>
+        <div id="auth-table_logo">Sapphire</div>
+        <%= form_tag({action: "signin"}, method: "post", id: "form_auth") do |f| %>
+        <table id="auth-table_wrapper">
+            <tr>
+              <td>Логин</td>
+              <td><input type="text" name="login"></td>
+            </tr>
+            <tr>
+              <td>Пароль</td>
+              <td><input type="password" name="pass"></td>
+            </tr>
+        </table>
+           <input type="submit" class="button" value="Войти">
+       <% end %>
+     </td>
+   </tr>
+ </table>
+</body>
+</html>

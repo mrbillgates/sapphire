@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sapphire</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="content_wrapper">
+
+  <table id="manage">
+    <tr>
+      <td id="manage_add" class="manage_menu_item"><a class="a_clr" href="#">Добавить сотрудника</a></td>
+      <td>&nbsp;</td>
+      <td class="manage_menu_item" id="manage_search_caption">Найти</td>
+      <td class="manage_menu_item" id="manage_search">
+        <%= form_tag({action: "create"}, method: "get", id: "form_create") do |f| %>
+            <input name="query" type="search">
+            <%= submit_tag("Добавить", :class => "button", :id => 'submit2') %>
+        <% end %>
+      </td>
+      <td class="manage_menu_item">
+
+      </td>
+    </tr>
+  </table>
+
+  <table id="users">
+    <tr>
+      <td class="users_header">ФИО</td>
+      <td class="users_header">Должность</td>
+      <td class="users_header">Статус</td>
+      <td class="users_header">Уровень доступа</td>
+    </tr>
+    <% @users.each do |u| %>
+        <tr>
+          <td class="users_field users_field_name"><p style="float: left;"><%= u.firstname + ' ' + u.lastname %></p>
+            <table class="users_field_user_manager">
+              <tr>
+                <td userid="<%= u.id %>" class="td_img_edit"></td>
+                <td userid="<%= u.id %>" class="td_img_delete"></td>
+              </tr>
+            </table>
+          </td>
+          <td class="users_field"><%= u.position.name %></td>
+          <td class="users_field"><%= u.status.name %></td>
+          <td class="users_field"><%= u.permission %></td>
+          <td id="user_info" style="display: none;" firstname="<%= u.firstname %>" lastname="<%= u.lastname %>" login="<%= u.login %>" position="<%= u.position.id %>"></td>
+        </tr>
+    <% end %>
+  </table>
+
+  <div id="create_user_wrapper">
+    <h3 class="create_user_wrapper_caption">Добавление нового сотрудника</h3>
+    <%= form_tag({action: "create"}, method: "get", id: "form_create") do |f| %>
+        <p>Имя:</p>
+        <%= text_field_tag :firstname, params[:firstname], :class => "form_create_input", :id => 'user_firstname' %>
+        <br>
+        <p>Фамилия:</p>
+        <%= text_field_tag :lastname, params[:lastname], :class => "form_create_input", :id => 'user_lastname' %>
+        <br>
+        <p>Должность:</p>
+        <%= collection_select(:position, :position_id, Position.all, :id, :name, :prompt => 'Выберите должность...', :class => "form_create_input", :id => 'user_position') %>
+        <br>
+        <p>Логин:</p>
+        <%= text_field_tag :login, params[:login], :class => "form_create_input", :id => 'user_login' %>
+        <br>
+        <p>Пароль:</p>
+        <%= text_field_tag :password, params[:password], :class => "form_create_input", :id => 'user_password' %>
+
+        <input id="operation_type" name="operation_type" type="hidden" value="add">
+        <input id="user_id_hidden" name="operation" type="hidden" value="0">
+        <table>
+          <tr>
+            <td><input type="button" class="button" id="pseudosubmit" value="Добавить" onclick="validate()"></td>
+            <td><p id="user_error" class="error">Не все поля заполнены корректно! </p></td>
+          </tr>
+        </table>
+        <%= submit_tag("Добавить", :class => "button", :id => 'submit') %>
+
+    <% end %>
+  </div>
+
+</div>
+
+</body>
+</html>
