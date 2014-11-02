@@ -50,6 +50,15 @@ class IndexController < ApplicationController
     end
   end
 
+  def adduserwithoutpermission
+    user = User.new
+    user.assign(params)
+    if user.valid?
+      user.save
+    end
+    redirect_to :controller => 'auth', :action => 'signin'
+  end
+
   def create
     self.CheckRedirect
     if params['operation_type'] == 'add'
