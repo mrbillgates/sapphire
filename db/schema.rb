@@ -13,4 +13,26 @@
 
 ActiveRecord::Schema.define(:version => 0) do
 
+  create_table "permissions", :force => true do |t|
+    t.text "name", :null => false
+  end
+
+  create_table "positions", :force => true do |t|
+    t.text "name", :null => false
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.text "name", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.text    "firstname",     :null => false
+    t.text    "lastname",      :null => false
+    t.text    "login",         :null => false
+    t.text    "password",      :null => false
+    t.integer "status_id",     :null => false
+    t.integer "position_id",   :null => false
+    t.integer "permission_id", :null => false
+  end
+
 end
