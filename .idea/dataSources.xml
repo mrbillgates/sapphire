@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="636216527">
+  <component name="DataSourceManagerImpl" format="xml" hash="2370963326">
     <data-source source="LOCAL" name="Rails Sapphire: development" uuid="e8d2bf27-39c3-42e6-810e-972ba7485765">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Sites\Sapphire\db\database.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/database</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dfcbdfcedfc7dfc3dfc4</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Sapphire: production" uuid="9c141ca8-a583-49e2-9523-cc531482faf4">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/database</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dfcbdfcedfc7dfc3dfc4</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Sapphire: test" uuid="3e89e2d9-1327-48ec-8dec-d95c80d682ef">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/my_database_test</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dfcbdfcedfc7dfc3dfc4</user-password>
       <libraries />
     </data-source>
   </component>

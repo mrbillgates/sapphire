@@ -5,6 +5,8 @@
 $(document).ready(function() {
 
     var rowForDelete;
+    var rowForFire;
+    var rowColor;
 
     $("#users").tablesorter();
 
@@ -52,6 +54,30 @@ $(document).ready(function() {
         Boxy.unload();
     });
 
+    $(".td_img_fire").click(function() {
+        var id = $(this).attr("userid");
+        var td = $(this);
+        Boxy.ask("Вы действительно хотите уволить выбранного сотрудника?", ["Да", "Нет"], function(val) {
+            if (val == "Да") {
+
+                $.ajax({
+                    type: "GET",
+                    url: 'fire',
+                    data: {'id': id}
+                });
+
+                var row = td.parent().parent().parent().parent().parent();
+                rowColor = row.children('#user_field_fire').css('background-color');
+                row.children('td').css('background-color', '#FFFBD6');
+
+                rowForFire = row;
+                setTimeout(setFired, 2000);
+
+            }
+        }, {title: "Увольнение сотрудника", userid: id, cancel: "Нет"});
+        Boxy.unload();
+    });
+
     $(".td_img_edit").colorbox({innerWidth: '400px', html: function (){
 
         $("#operation_type").attr('value', 'edit');
@@ -86,6 +112,11 @@ $(document).ready(function() {
 
     function deleteRow () {
         rowForDelete.remove();
+    }
+
+    function setFired () {
+        rowForFire.children('#user_field_fire').text('Уволен');
+        rowForFire.children('td').css('background-color', rowColor);
     }
 
     $(".td_img_edit").click(function() {

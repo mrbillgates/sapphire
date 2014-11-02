@@ -49,16 +49,35 @@
           <td class="users_field users_field_name"><p style="float: left;"><%= u.firstname + ' ' + u.lastname %></p>
             <table class="users_field_user_manager">
               <tr>
-
+                <!-- Увольнение !-->
                 <%
-                   @str = '<td userid="' + u.id.to_s + '" class="td_img_edit"></td>'
-                   if self.GetPermission < 3
+                   if u.status.id == 1
+
+                        @str = '<td userid="' + u.id.to_s + '" class="td_img_fire"></td>'
+                        if self.GetPermission < 3
                 %>
 
                     <%= @str.html_safe %>
 
-                <% end %>
+                <%
+                    end
+                   end
+                %>
+                <!-- Редактирование !-->
+                <%
+                   if u.status.id == 1
 
+                        @str = '<td userid="' + u.id.to_s + '" class="td_img_edit"></td>'
+                        if self.GetPermission < 3
+                %>
+
+                    <%= @str.html_safe %>
+
+                <%
+                       end
+                   end
+                %>
+                <!-- Удаление !-->
                 <%
                    @str = '<td userid="' + u.id.to_s + '" class="td_img_delete"></td>'
                    if self.GetPermission == 1
@@ -72,7 +91,7 @@
           </td>
 
           <td class="users_field"><%= u.position.name %></td>
-          <td class="users_field"><%= u.status.name %></td>
+          <td class="users_field" id="user_field_fire"><%= u.status.name %></td>
           <td class="users_field"><%= u.permission.name %></td>
           <td id="user_info" style="display: none;" firstname="<%= u.firstname %>" lastname="<%= u.lastname %>" login="<%= u.login %>" position="<%= u.position.id %>" permission="<%= u.permission.id %>"></td>
 
@@ -93,8 +112,16 @@
         <p>Должность:</p>
         <%= collection_select(:position, :position_id, Position.all, :id, :name, :prompt => 'Выберите должность...', :class => "form_create_input", :id => 'user_position') %>
         <br>
-        <p>Уровень прав:</p>
-        <%= collection_select(:permission, :permission_id, Permission.all, :id, :name, :prompt => 'Выберите уровень прав...', :class => "form_create_input", :id => 'user_persmission') %>
+
+        <% if self.GetPermission == 1
+            @str = '<p>Уровень прав:</p>'
+        %>
+
+        <%= @str.html_safe %>
+
+        <% end %>
+
+        <%=  collection_select(:permission, :permission_id, Permission.all, :id, :name, {:prompt => 'Выберите уровень прав...' }, { :class =>  (self.GetPermission == 1 ? "form_create_input" : "form_create_input_hidden") }) %>
         <br>
         <p>Логин:</p>
         <%= text_field_tag :login, params[:login], :class => "form_create_input", :id => 'user_login' %>

@@ -32,6 +32,17 @@ class IndexController < ApplicationController
 
   end
 
+  def fire
+
+    if User.exists?(params['id'])
+      user = User.find(params['id'])
+      user.fire
+      user.save
+    end
+
+    render nothing: true
+  end
+
   def delete
     self.CheckRedirect
     if User.find(params['id']).destroy
@@ -44,7 +55,9 @@ class IndexController < ApplicationController
     if params['operation_type'] == 'add'
       user = User.new
       user.assign(params)
-
+      if self.GetPermission > 1
+        user.permission_id = 3
+      end
       if user.valid?
         user.save
       end

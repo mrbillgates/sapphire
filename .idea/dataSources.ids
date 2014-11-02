@@ -3,4 +3,10 @@
   <data-source source="LOCAL" name="Rails Sapphire: development" uuid="e8d2bf27-39c3-42e6-810e-972ba7485765">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails Sapphire: production" uuid="9c141ca8-a583-49e2-9523-cc531482faf4">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails Sapphire: test" uuid="3e89e2d9-1327-48ec-8dec-d95c80d682ef">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

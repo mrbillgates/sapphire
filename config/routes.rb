@@ -54,6 +54,7 @@ Sapphire::Application.routes.draw do
   get 'show', to: 'index#show'
   get 'create', to: 'index#create'
   get 'delete', to: 'index#delete'
+  get 'fire', to: 'index#fire'
   get 'search', to: 'index#search'
   get 'signout', to: 'auth#signout'
   # See how all your routes lay out with "rake routes"

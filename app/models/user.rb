@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   validates :permission_id, presence: true
   validates :password, presence: true
 
+  def fire
+    self.status_id = 2
+  end
+
   def assign(params)
     self.firstname = params['firstname']
     self.lastname = params['lastname']

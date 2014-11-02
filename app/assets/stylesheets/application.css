@@ -100,6 +100,11 @@ input, select {
     background-image: url(../images/user_edit-24-1.png);
 }
 
+.td_img_fire {
+    background-image: url(../images/user_fire-24-1.png);
+}
+
+
 #create_user_wrapper {
     width: 350px;
     height: auto;
@@ -124,6 +129,10 @@ input, select {
 .form_create_input, #permission_permission_id  {
     width: 95%;
     margin: 4px;
+}
+
+.form_create_input_hidden {
+    display: none !important;
 }
 
 .button {
