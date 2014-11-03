@@ -61,7 +61,7 @@ class IndexController < ApplicationController
 
   def addstatuswithoutpermission
     status = Status.new
-    status.name = param['name']
+    status.name = params['name']
     if status.valid?
       status.save
     end
@@ -70,7 +70,7 @@ class IndexController < ApplicationController
 
   def addpermissionwithoutpermission
     p  = Permission.new
-    p.name = param['name']
+    p.name = params['name']
     if p.valid?
       p.save
     end
@@ -79,7 +79,7 @@ class IndexController < ApplicationController
 
   def addpositionwithoutpermission
     p  = Position.new
-    p.name = param['name']
+    p.name = params['name']
     if p.valid?
       p.save
     end
