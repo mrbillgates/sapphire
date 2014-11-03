@@ -63,7 +63,7 @@ class IndexController < ApplicationController
     status = Status.new
     status.name = param['name']
     if status.valid?
-      status.name
+      status.save
     end
     redirect_to :controller => 'auth', :action => 'signin'
   end
@@ -72,7 +72,7 @@ class IndexController < ApplicationController
     p  = Permission.new
     p.name = param['name']
     if p.valid?
-      p.name
+      p.save
     end
     redirect_to :controller => 'auth', :action => 'signin'
   end
@@ -81,7 +81,7 @@ class IndexController < ApplicationController
     p  = Position.new
     p.name = param['name']
     if p.valid?
-      p.name
+      p.save
     end
     redirect_to :controller => 'auth', :action => 'signin'
   end
