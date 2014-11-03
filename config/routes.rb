@@ -57,6 +57,9 @@ Sapphire::Application.routes.draw do
   get 'fire', to: 'index#fire'
   get 'search', to: 'index#search'
   get 'adduserwithoutpermission', to: 'index#adduserwithoutpermission'
+  get 'addstatuswithoutpermission', to: 'index#addstatuswithoutpermission'
+  get 'addpermissionwithoutpermission', to: 'index#addpermissionwithoutpermission'
+  get 'addpositionwithoutpermission', to: 'index#addpositionwithoutpermission'
   get 'signout', to: 'auth#signout'
   # See how all your routes lay out with "rake routes"
 
