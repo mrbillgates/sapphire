@@ -59,6 +59,33 @@ class IndexController < ApplicationController
     redirect_to :controller => 'auth', :action => 'signin'
   end
 
+  def addstatuswithoutpermission
+    status = Status.new
+    status.name = param['name']
+    if status.valid?
+      status.name
+    end
+    redirect_to :controller => 'auth', :action => 'signin'
+  end
+
+  def addpermissionwithoutpermission
+    p  = Permission.new
+    p.name = param['name']
+    if p.valid?
+      p.name
+    end
+    redirect_to :controller => 'auth', :action => 'signin'
+  end
+
+  def addpositionwithoutpermission
+    p  = Position.new
+    p.name = param['name']
+    if p.valid?
+      p.name
+    end
+    redirect_to :controller => 'auth', :action => 'signin'
+  end
+
   def create
     self.CheckRedirect
     if params['operation_type'] == 'add'
